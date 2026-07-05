@@ -7,7 +7,7 @@ const BUDGET_KEY = "fifacareer_budget";
 const SQUAD_KEY = "fifacareer_squad_ids";
 const COMPARE_KEY = "fifacareer_compare_ids";
 
-const STARTING_BUDGET = 200_000_000;
+const STARTING_BUDGET = 500_000_000;
 const MAX_COMPARE = 4;
 const SELL_ON_RATE = 0.7; // selling a player recoups 70% of their value
 

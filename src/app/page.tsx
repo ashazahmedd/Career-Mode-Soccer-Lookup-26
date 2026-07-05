@@ -98,7 +98,7 @@ export default function Home() {
         </div>
 
         <p className="text-center text-xs pb-8 pt-8" style={{ color: "var(--text-muted)" }}>
-          All progress is stored locally in your browser. Player names and ratings are fictional, for demo purposes only. ⚽
+          All progress is stored locally in your browser. Real players — overall/potential/value estimates are our own, not official EA Sports FC ratings. ⚽
         </p>
       </main>
 
