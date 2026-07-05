@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f2f8f5;
+  --surface: #ffffff;
+  --surface-2: #eafcf1;
+  --green-soft: #bbf0d1;
+  --green-mid: #34d399;
+  --green-strong: #10b981;
+  --green-dark: #047857;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --border: #dbeee1;
+  --gold: #f59e0b;
+  --red: #ef4444;
+  --blue: #3b82f6;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+input[type="number"] { -moz-appearance: textfield; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--surface-2); }
+::-webkit-scrollbar-thumb { background: var(--green-soft); border-radius: 3px; }
