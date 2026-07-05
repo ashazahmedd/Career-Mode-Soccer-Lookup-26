@@ -97,11 +97,8 @@ export default function Home() {
           ))}
         </div>
 
-        <p className="text-center text-xs pb-2 pt-8" style={{ color: "var(--text-muted)" }}>
+        <p className="text-center text-xs pb-8 pt-8" style={{ color: "var(--text-muted)" }}>
           All progress is stored locally in your browser. Real players — overall/potential/value estimates are our own, not official EA Sports FC ratings. ⚽
-        </p>
-        <p className="text-center text-xs pb-8" style={{ color: "var(--text-muted)" }}>
-          Player photos via Wikimedia Commons contributors, used under their free licenses.
         </p>
       </main>
 
