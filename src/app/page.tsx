@@ -38,13 +38,15 @@ export default function Home() {
     <div style={{ minHeight: "100vh", background: "var(--bg)" }}>
       <nav
         className="sticky top-0 z-40 flex items-center justify-between px-6 py-4"
-        style={{ background: "rgba(242,248,245,0.85)", backdropFilter: "blur(12px)", borderBottom: "1px solid var(--border)" }}
+        style={{ background: "rgba(10,14,20,0.85)", backdropFilter: "blur(12px)", borderBottom: "1px solid var(--border)" }}
       >
         <div className="flex items-center gap-2">
           <span className="text-xl">⚽</span>
-          <span className="text-base font-bold tracking-tight" style={{ color: "var(--text)" }}>Career Mode Soccer Lookup 26</span>
+          <span className="text-base font-bold tracking-tight" style={{ color: "var(--text)" }}>
+            Career Mode <span style={{ color: "var(--green-dark)" }}>Soccer Lookup 26</span>
+          </span>
         </div>
-        <div className="text-sm font-semibold px-4 py-1.5 rounded-full" style={{ background: "var(--surface-2)", color: "var(--green-dark)" }}>
+        <div className="text-sm font-bold px-4 py-1.5 rounded-full" style={{ background: "var(--surface-2)", color: "var(--green-dark)", border: "1px solid var(--green-soft)" }}>
           Budget: {formatMoney(store.budget)}
         </div>
       </nav>
@@ -119,8 +121,8 @@ function TabButton({ label, active, onClick }: { label: string; active: boolean;
       onClick={onClick}
       className="px-4 py-2 rounded-2xl text-sm font-semibold transition-all"
       style={active
-        ? { background: "linear-gradient(135deg, var(--green-mid), var(--green-strong))", color: "#ffffff" }
-        : { background: "#ffffff", color: "var(--text-muted)", border: "1.5px solid var(--border)" }}
+        ? { background: "linear-gradient(135deg, var(--neon), var(--green-strong))", color: "#04150c", boxShadow: "0 0 18px rgba(0,230,118,0.35)" }
+        : { background: "var(--surface)", color: "var(--text-muted)", border: "1.5px solid var(--border)" }}
     >
       {label}
     </button>

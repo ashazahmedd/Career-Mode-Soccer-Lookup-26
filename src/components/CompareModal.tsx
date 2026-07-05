@@ -42,9 +42,9 @@ export default function CompareModal({ players, onClose, onRemove }: Props) {
   }, [onClose]);
 
   return (
-    <div ref={overlayRef} className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ background: "rgba(15,23,42,0.4)", backdropFilter: "blur(4px)" }} onClick={(e) => { if (e.target === overlayRef.current) onClose(); }}>
-      <div className="w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-3xl shadow-2xl" style={{ background: "#ffffff", border: "1.5px solid var(--border)" }}>
-        <div className="flex items-center justify-between px-6 py-5 sticky top-0" style={{ borderBottom: "1px solid var(--border)", background: "#ffffff" }}>
+    <div ref={overlayRef} className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)" }} onClick={(e) => { if (e.target === overlayRef.current) onClose(); }}>
+      <div className="w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-3xl shadow-2xl" style={{ background: "var(--surface)", border: "1.5px solid var(--green-soft)" }}>
+        <div className="flex items-center justify-between px-6 py-5 sticky top-0" style={{ borderBottom: "1px solid var(--border)", background: "var(--surface)" }}>
           <h2 className="text-lg font-bold" style={{ color: "var(--text)" }}>Compare Players</h2>
           <button onClick={onClose} className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: "var(--surface-2)", color: "var(--green-dark)" }}>✕</button>
         </div>

@@ -19,7 +19,7 @@ export default function PlayerCard({ player, signed, canAfford, compareChecked, 
   const { labels, values } = getAttributes(player);
 
   return (
-    <div className="rounded-2xl p-5 flex gap-5 transition-all hover:shadow-md" style={{ background: "#ffffff", border: "1.5px solid var(--border)" }}>
+    <div className="rounded-2xl p-5 flex gap-5 transition-all hover:shadow-lg hover:brightness-110" style={{ background: "var(--surface)", border: "1.5px solid var(--border)" }}>
       {/* Left: identity, price, meta, actions */}
       <div className="flex-1 min-w-0 flex flex-col gap-3">
         <div className="flex items-center gap-2">
@@ -61,15 +61,15 @@ export default function PlayerCard({ player, signed, canAfford, compareChecked, 
             Compare
           </label>
           {signed ? (
-            <button onClick={onRelease} className="px-3.5 py-1.5 rounded-xl text-xs font-semibold" style={{ background: "#fff5f5", color: "var(--red)" }}>
+            <button onClick={onRelease} className="px-3.5 py-1.5 rounded-xl text-xs font-semibold" style={{ background: "rgba(255,82,102,0.12)", color: "var(--red)" }}>
               Release
             </button>
           ) : (
             <button
               onClick={onSign}
               disabled={!canAfford}
-              className="px-3.5 py-1.5 rounded-xl text-xs font-semibold text-white disabled:opacity-40 disabled:cursor-not-allowed"
-              style={{ background: "linear-gradient(135deg, var(--green-mid), var(--green-strong))" }}
+              className="px-3.5 py-1.5 rounded-xl text-xs font-bold disabled:opacity-40 disabled:cursor-not-allowed"
+              style={{ background: "linear-gradient(135deg, var(--neon), var(--green-strong))", color: "#04150c", boxShadow: canAfford ? "0 0 14px rgba(0,230,118,0.3)" : "none" }}
               title={canAfford ? "Sign this player" : "Not enough budget"}
             >
               Sign

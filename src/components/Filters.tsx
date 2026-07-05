@@ -29,13 +29,13 @@ export default function Filters({ search, onSearch, position, onPosition, sortKe
         onChange={(e) => onSearch(e.target.value)}
         placeholder="Search player name..."
         className="flex-1 px-4 py-2.5 rounded-2xl text-sm outline-none"
-        style={{ background: "#ffffff", border: "1.5px solid var(--border)", color: "var(--text)" }}
+        style={{ background: "var(--surface)", border: "1.5px solid var(--border)", color: "var(--text)" }}
       />
       <select
         value={position}
         onChange={(e) => onPosition(e.target.value as Position | "ALL")}
         className="px-4 py-2.5 rounded-2xl text-sm outline-none cursor-pointer"
-        style={{ background: "#ffffff", border: "1.5px solid var(--border)", color: "var(--text)" }}
+        style={{ background: "var(--surface)", border: "1.5px solid var(--border)", color: "var(--text)" }}
       >
         <option value="ALL">All Positions</option>
         {POSITIONS.map((p) => <option key={p} value={p}>{p}</option>)}
@@ -45,7 +45,7 @@ export default function Filters({ search, onSearch, position, onPosition, sortKe
           value={sortKey}
           onChange={(e) => onSortKey(e.target.value as SortKey)}
           className="px-4 py-2.5 rounded-2xl text-sm outline-none cursor-pointer"
-          style={{ background: "#ffffff", border: "1.5px solid var(--border)", color: "var(--text)" }}
+          style={{ background: "var(--surface)", border: "1.5px solid var(--border)", color: "var(--text)" }}
         >
           {Object.entries(sortLabels).map(([k, label]) => <option key={k} value={k}>Sort: {label}</option>)}
         </select>

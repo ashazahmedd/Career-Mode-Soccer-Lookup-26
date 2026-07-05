@@ -1,19 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f2f8f5;
-  --surface: #ffffff;
-  --surface-2: #eafcf1;
-  --green-soft: #bbf0d1;
-  --green-mid: #34d399;
-  --green-strong: #10b981;
-  --green-dark: #047857;
-  --text: #0f172a;
-  --text-muted: #64748b;
-  --border: #dbeee1;
-  --gold: #f59e0b;
-  --red: #ef4444;
-  --blue: #3b82f6;
+  --bg: #0a0e14;
+  --bg-elevated: #10151d;
+  --surface: #141b24;
+  --surface-2: #1a2430;
+  --green-soft: #1e3a2f;
+  --green-mid: #00e676;
+  --green-strong: #00c853;
+  --green-dark: #00ffa3;
+  --neon: #39ff9d;
+  --text: #f5f8fa;
+  --text-muted: #8a97a8;
+  --border: #232e3a;
+  --gold: #ffd60a;
+  --red: #ff5266;
+  --blue: #00c2ff;
+  --purple: #a78bfa;
 }
 
 * { box-sizing: border-box; }
@@ -30,5 +33,7 @@ input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; marg
 input[type="number"] { -moz-appearance: textfield; }
 
 ::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: var(--surface-2); }
-::-webkit-scrollbar-thumb { background: var(--green-soft); border-radius: 3px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--green-strong); border-radius: 3px; }
+
+::placeholder { color: var(--text-muted); opacity: 0.7; }
