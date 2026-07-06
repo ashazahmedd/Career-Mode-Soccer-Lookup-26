@@ -108,6 +108,7 @@ export function useStore() {
 
   const squadValue = squad.reduce((sum, p) => sum + p.value, 0);
   const wageBill = squad.reduce((sum, p) => sum + p.wage, 0);
+  const teamOverall = squad.length ? Math.round(squad.reduce((sum, p) => sum + p.overall, 0) / squad.length) : 0;
 
   return {
     budget,
@@ -118,6 +119,7 @@ export function useStore() {
     compareList,
     squadValue,
     wageBill,
+    teamOverall,
     maxCompare: MAX_COMPARE,
     signPlayer,
     releasePlayer,

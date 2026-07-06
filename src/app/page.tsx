@@ -58,6 +58,7 @@ export default function Home() {
           squadSize={store.squad.length}
           squadValue={store.squadValue}
           wageBill={store.wageBill}
+          teamOverall={store.teamOverall}
           onReset={() => { if (confirm("Reset your career? This clears your squad and restores your starting budget.")) store.resetCareer(); }}
         />
 
