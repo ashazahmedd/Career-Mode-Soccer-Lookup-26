@@ -7,6 +7,7 @@ import Filters from "@/components/Filters";
 import PlayerCard from "@/components/PlayerCard";
 import CompareBar from "@/components/CompareBar";
 import CompareModal from "@/components/CompareModal";
+import FormationPitch from "@/components/FormationPitch";
 import type { Player, Position, SortDir, SortKey } from "@/lib/types";
 
 type Tab = "market" | "squad";
@@ -64,6 +65,8 @@ export default function Home() {
           <TabButton label={`Transfer Market (${store.available.length})`} active={tab === "market"} onClick={() => setTab("market")} />
           <TabButton label={`My Squad (${store.squad.length})`} active={tab === "squad"} onClick={() => setTab("squad")} />
         </div>
+
+        {tab === "squad" && store.squad.length > 0 && <FormationPitch squad={store.squad} />}
 
         <Filters
           search={search}
