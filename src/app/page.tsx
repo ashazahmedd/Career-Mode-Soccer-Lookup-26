@@ -8,6 +8,7 @@ import PlayerCard from "@/components/PlayerCard";
 import CompareBar from "@/components/CompareBar";
 import CompareModal from "@/components/CompareModal";
 import FormationPitch from "@/components/FormationPitch";
+import WelcomeScreen from "@/components/WelcomeScreen";
 import type { Player, Position, SortDir, SortKey } from "@/lib/types";
 
 type Tab = "market" | "squad";
@@ -35,19 +36,37 @@ export default function Home() {
     });
   }, [source, search, position, sortKey, sortDir]);
 
+  if (!store.ready) {
+    return <div style={{ minHeight: "100vh", background: "var(--bg)" }} />;
+  }
+
+  if (!store.managerName) {
+    return <WelcomeScreen onSubmit={store.setManagerName} />;
+  }
+
   return (
     <div style={{ minHeight: "100vh", background: "var(--bg)" }}>
       <nav
         className="sticky top-0 z-40 flex items-center justify-between px-6 py-4"
         style={{ background: "rgba(10,14,20,0.85)", backdropFilter: "blur(12px)", borderBottom: "1px solid var(--border)" }}
       >
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 min-w-0">
           <span className="text-xl">⚽</span>
-          <span className="text-base font-bold tracking-tight" style={{ color: "var(--text)" }}>
-            Career Mode <span style={{ color: "var(--green-dark)" }}>Soccer Lookup 26</span>
-          </span>
+          <div className="min-w-0">
+            <span className="text-base font-bold tracking-tight block" style={{ color: "var(--text)" }}>
+              Career Mode <span style={{ color: "var(--green-dark)" }}>Soccer Lookup 26</span>
+            </span>
+            <button
+              onClick={() => { if (confirm("Switch manager? Your budget and squad stay saved on this device.")) store.setManagerName(""); }}
+              className="text-xs truncate block text-left hover:underline"
+              style={{ color: "var(--text-muted)" }}
+              title="Switch manager"
+            >
+              Manager: {store.managerName}
+            </button>
+          </div>
         </div>
-        <div className="text-sm font-bold px-4 py-1.5 rounded-full" style={{ background: "var(--surface-2)", color: "var(--green-dark)", border: "1px solid var(--green-soft)" }}>
+        <div className="text-sm font-bold px-4 py-1.5 rounded-full flex-shrink-0" style={{ background: "var(--surface-2)", color: "var(--green-dark)", border: "1px solid var(--green-soft)" }}>
           Budget: {formatMoney(store.budget)}
         </div>
       </nav>

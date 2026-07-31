@@ -1,11 +1,12 @@
 "use client";
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useEffect } from "react";
 import { PLAYERS } from "./players";
 import type { Player } from "./types";
 
 const BUDGET_KEY = "fifacareer_budget";
 const SQUAD_KEY = "fifacareer_squad_ids";
 const COMPARE_KEY = "fifacareer_compare_ids";
+const MANAGER_KEY = "fifacareer_manager_name";
 
 const STARTING_BUDGET = 500_000_000;
 const MAX_COMPARE = 4;
@@ -31,6 +32,20 @@ export function useStore() {
   const [budget, setBudget] = useState<number>(() => loadFromStorage(BUDGET_KEY, STARTING_BUDGET));
   const [squadIds, setSquadIds] = useState<string[]>(() => loadFromStorage<string[]>(SQUAD_KEY, []));
   const [compareIds, setCompareIds] = useState<string[]>(() => loadFromStorage<string[]>(COMPARE_KEY, []));
+  const [managerName, setManagerNameState] = useState<string>(() => loadFromStorage(MANAGER_KEY, ""));
+
+  // Reading localStorage in the lazy initializers above means the client's
+  // first render can differ from the server-rendered HTML for a returning
+  // visitor. Gate on `ready` (flipped true only after mount) before branching
+  // UI on localStorage-derived state, so there's no hydration mismatch and no
+  // flash of the welcome screen for someone who already has a manager name.
+  const [ready, setReady] = useState(false);
+  useEffect(() => { setReady(true); }, []);
+
+  const setManagerName = useCallback((name: string) => {
+    setManagerNameState(name);
+    saveToStorage(MANAGER_KEY, name);
+  }, []);
 
   const playersById = useMemo(() => {
     const map = new Map<string, Player>();
@@ -111,6 +126,9 @@ export function useStore() {
   const teamOverall = squad.length ? Math.round(squad.reduce((sum, p) => sum + p.overall, 0) / squad.length) : 0;
 
   return {
+    ready,
+    managerName,
+    setManagerName,
     budget,
     squad,
     available,
