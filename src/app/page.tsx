@@ -9,6 +9,8 @@ import CompareBar from "@/components/CompareBar";
 import CompareModal from "@/components/CompareModal";
 import FormationPitch from "@/components/FormationPitch";
 import WelcomeScreen from "@/components/WelcomeScreen";
+import KickoffTransition from "@/components/KickoffTransition";
+import SoccerBallLogo from "@/components/SoccerBallLogo";
 import type { Player, Position, SortDir, SortKey } from "@/lib/types";
 
 type Tab = "market" | "squad";
@@ -21,6 +23,7 @@ export default function Home() {
   const [sortKey, setSortKey] = useState<SortKey>("overall");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
   const [showCompare, setShowCompare] = useState(false);
+  const [enteringName, setEnteringName] = useState<string | null>(null);
 
   const source = tab === "market" ? store.available : store.squad;
 
@@ -40,8 +43,17 @@ export default function Home() {
     return <div style={{ minHeight: "100vh", background: "var(--bg)" }} />;
   }
 
+  if (enteringName !== null) {
+    return (
+      <KickoffTransition
+        name={enteringName}
+        onDone={() => { store.setManagerName(enteringName); setEnteringName(null); }}
+      />
+    );
+  }
+
   if (!store.managerName) {
-    return <WelcomeScreen onSubmit={store.setManagerName} />;
+    return <WelcomeScreen onSubmit={setEnteringName} />;
   }
 
   return (
@@ -51,7 +63,7 @@ export default function Home() {
         style={{ background: "rgba(10,14,20,0.85)", backdropFilter: "blur(12px)", borderBottom: "1px solid var(--border)" }}
       >
         <div className="flex items-center gap-2 min-w-0">
-          <span className="text-xl">⚽</span>
+          <SoccerBallLogo size={26} className="flex-shrink-0" />
           <div className="min-w-0">
             <span className="text-base font-bold tracking-tight block" style={{ color: "var(--text)" }}>
               Career Mode <span style={{ color: "var(--green-dark)" }}>Soccer Lookup 26</span>

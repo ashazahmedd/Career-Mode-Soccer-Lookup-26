@@ -1,5 +1,6 @@
 "use client";
 import { formatMoney } from "@/lib/format";
+import SoccerBallLogo from "@/components/SoccerBallLogo";
 
 interface Props {
   budget: number;
@@ -18,7 +19,7 @@ export default function BudgetHero({ budget, squadSize, squadValue, wageBill, te
       <div className="relative">
         <div className="flex items-center justify-between mb-1">
           <div className="flex items-center gap-2">
-            <span className="text-2xl">⚽</span>
+            <SoccerBallLogo size={28} />
             <span className="text-sm font-bold tracking-widest uppercase" style={{ color: "var(--neon)" }}>Career Mode</span>
           </div>
           <button onClick={onReset} className="text-xs font-semibold px-3 py-1.5 rounded-full hover:opacity-80" style={{ background: "var(--surface)", color: "var(--text-muted)", border: "1px solid var(--border)" }}>

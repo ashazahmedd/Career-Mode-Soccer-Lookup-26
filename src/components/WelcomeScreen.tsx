@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import SoccerBallLogo from "@/components/SoccerBallLogo";
 
 interface Props { onSubmit: (name: string) => void; }
 
@@ -20,7 +21,9 @@ export default function WelcomeScreen({ onSubmit }: Props) {
         <div className="absolute -bottom-14 -left-14 w-40 h-40 rounded-full opacity-15 blur-2xl" style={{ background: "var(--blue)" }} />
 
         <div className="relative">
-          <div className="text-5xl mb-3">⚽</div>
+          <div className="flex justify-center mb-3" style={{ animation: "fade-in-up 0.6s ease both" }}>
+            <SoccerBallLogo size={72} />
+          </div>
           <h1 className="text-2xl font-extrabold mb-2 leading-tight" style={{ color: "#ffffff" }}>
             Career Mode <span style={{ color: "var(--green-dark)" }}>Soccer Lookup 26</span>
           </h1>
